@@ -8,6 +8,14 @@
     structure-et-semantique-html5
     -->
     <!-- appel des fichiers css et js -->
+     <script language="javascript">
+        window.addEventListener('DOMContentLoaded', function(){
+            document.getElementById('testDialog').addEventListener('click', function(){
+                const saisieDialog = document.getElementById('saisieDialog').value;
+                console.log(saisieDialog);
+            });
+        });
+    </script>
 </head>
 <body>
     <header role="banner">
@@ -27,13 +35,58 @@
     </nav>
     <main>
         <header>
-            <h1>Structure et sémantique HTML5</h1>
+            <h1 id="structure-et-semantique-html5">Structure et sémantique HTML5</h1>
         </header>
+        <aside>
+            <ul>
+                <li><a href="#structure-et-semantique-html5" target="_self" title="">Structure et sémantique HTML5</a></li>
+                <li><a href="#les-balises-de-structure-principales" target="_self" title="">Les balises de structure principales</a></li>
+                <li><a href="#composants-interactifs-et-modernes" target="_self" title="">Composants interactifs et modernes</a></li>
+                <li><a href="#" target="_self" title="">a</a></li>
+                <li><a href="#" target="_self" title="">a</a></li>
+                <li><a href="#" target="_self" title="">a</a></li>
+                <li><a href="#" target="_self" title="">a</a></li>
+                <li><a href="#" target="_self" title="">a</a></li>
+                <li><a href="#" target="_self" title="">a</a></li>
+                <li><a href="#" target="_self" title="">a</a></li>
+            </ul>
+        </aside>
         <section>
             <article>
                 <header>
-                    <h2></h2>
+                    <h2 id="les-balises-de-structure-principales">Les balises de structure principales</h2>
                 </header>
+                <ul>
+                    <li><code>&lt;header&gt;</code> : Entête de page ou de section.</li>
+                    <li><code>&lt;nav&gt;</code> : Liens de navigation principaux.</li>
+                    <li><code>&lt;main&gt;</code> : Contenu principal unique du document.</li>
+                    <li><code>&lt;article&gt;</code> : Contenu autonome et réutilisable (ex: article de blog, carte produit).</li>
+                    <li><code>&lt;section&gt;</code> : Regroupement thématique de contenu.</li>
+                    <li><code>&lt;aside&gt;</code> : Contenu connexe ou latéral (sidebar).</li>
+                    <li><code>&lt;footer&gt;</code> : Pied de page ou de section.</li>
+                </ul>
+            </article>
+            <article>
+                <header>
+                    <h2 id="composants-interactifs-et-modernes">Composants interactifs et modernes</h2>
+                </header>
+                <ul>
+                    <li><code>&lt;dialog&gt;</code> : Fenêtre modales ou boîtes de dialogue natives.</li>
+                    <li><code>&lt;details&gt;</code> et <code>&lt;summary&gt;</code> : Accordéon / Contenu repliable sans javascript.</li>
+                    <li><code>&lt;figure&gt;</code> et <code>&lt;figcaption&gt;</code> : Intégration de media enrichis avec légende.</li>
+                </ul>
+                <h3><code>dialog</code></h3>
+                <button role="dialog" commandfor="testDialog" command="show-modal">Ouvrir dialog</button>
+                <dialog id="testDialog">
+                    <p>C'est une balise <code>dialog</code></p>
+                    <p>
+                        <input type="text" name="saisieDialog" id="saisieDialog" />
+                    </p>
+                    <p>
+                        <button role="button" commandfor="testDialog" command="close">Fermer</button>
+                    </p>
+                    
+                </dialog>
             </article>
         </section>
     </main>
