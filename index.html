@@ -42,7 +42,7 @@
                 <li><a href="#structure-et-semantique-html5" target="_self" title="">Structure et sémantique HTML5</a></li>
                 <li><a href="#les-balises-de-structure-principales" target="_self" title="">Les balises de structure principales</a></li>
                 <li><a href="#composants-interactifs-et-modernes" target="_self" title="">Composants interactifs et modernes</a></li>
-                <li><a href="#" target="_self" title="">a</a></li>
+                <li><a href="#accessibilite-web" target="_self" title="Accessibilité Web">Accessibilité Web</a></li>
                 <li><a href="#" target="_self" title="">a</a></li>
                 <li><a href="#" target="_self" title="">a</a></li>
                 <li><a href="#" target="_self" title="">a</a></li>
@@ -76,14 +76,14 @@
                     <li><code>&lt;figure&gt;</code> et <code>&lt;figcaption&gt;</code> : Intégration de media enrichis avec légende.</li>
                 </ul>
                 <h3><code>dialog</code></h3>
-                <button role="dialog" commandfor="testDialog" command="show-modal">Ouvrir dialog</button>
+                <button role="button" commandfor="testDialog" command="show-modal" aria-label="Ouvrir la boîte de dialogue">Ouvrir dialog</button>
                 <dialog id="testDialog">
                     <p>C'est une balise <code>dialog</code></p>
                     <p>
                         <input type="text" name="saisieDialog" id="saisieDialog" />
                     </p>
                     <p>
-                        <button role="button" commandfor="testDialog" command="close">Fermer</button>
+                        <button role="button" commandfor="testDialog" command="close" aria-label="Ouvrir la boîte de dialogue">Fermer</button>
                     </p>
                 </dialog>
                 <h3><code>details</code> et <code>summary</code></h3>
@@ -100,6 +100,84 @@
                         Portrait du personnage Doc Brown par James White (<a href="https://signalnoise.com/" target="_blank" title="Signalnoise, portfolio web de James White">signalenoise</a>)
                     </figcaption>
                 </figure>
+            </article>
+            <article>
+                <header>
+                    <h2 id="accessibilite-web">Accessibilité Web</h2>
+                </header>
+                <ul>
+                    <li>Hiérarchie des titres : <code>&lt;h1&gt; - &lt;h6&gt;</code></li>
+                    <li>l'attribut <code>alt</code></li>
+                    <li>les attributs <code>aria-*</code></li>
+                </ul>
+                <h3>Hiérarchie des titres</h3>
+                <p>
+                    Les titre en HTML sont hiérarchisés du plus important <code>h1</code> au moins important <code>h6</code>
+                </p>
+                <h4>Les titres utilisables</h4>
+                <code>
+                    <ul>
+                        <li>&lt;h1&gt; Titre principal de la page</li>
+                        <li>&lt;h2&gt; Titre de section</li>
+                        <li>&lt;h3&gt; sous-titre de section</li>
+                        <li>&lt;h4&gt; sous-sous-titre</li>
+                        <li>&lt;h5&gt; niveau 5</li>
+                        <li>&lt;h6&gt;  niveau 6 (très rarement utilisé)</li>
+                    </ul>
+                </code>
+                <h4>Des règles à respecter</h4>
+                <ul>
+                    <li>Un seul h1 par document</li>
+                    <li>on ne saute pas de niveau</li>
+                    <li>Ordre croissant : on utilise les titre selon l'ordre logique et non l'apparence, elle se règle en CSS</li>
+                </ul>
+                <h3>L'attribut <code>alt</code></h3>
+                <p>
+                    Il s'ajoute à la balise d'image, c'est une description textuelle de l'image
+                </p>
+                <ul>
+                    <li>Accessibilité : les lecteur d'écran lisent ce texte pour les aveugles ou malvoyants</li>
+                    <li>Référencement naterel (SEO) : Les moteur de recherche s'en servent pour comprendre le contnu des images et les référencer correctement</li>
+                    <li>Affichage de secours : si l'image à été supprimée ou si elle n'est pas utilisable ou si le lien n'est pas correctement écrit, ce texte s'affiche à la place.</li>
+                    <li>Il faut être concis et descriptif (on décrit le contenu pas le contexte)</li>
+                    <li>pas de redondance ("images de...", "photo de...")</li>
+                    <li>s'il s'agit d'une image décorative, on met l'attribut en revanche il doit être vide : <code>alt=""</code></li>
+                    <li>Image remplaçant un lien ou un bouton : on ne décris plus l'image mais l'action, <code>src="loupe.png" alt="rechercher"</code></li>
+                </ul>
+                <h3>Les attributs <code>aria-*</code> et les rôles</h3>
+                <h4>ARIA</h4>
+                <p>
+                    ARIA (Accessible Rich Internet Applications) est un ensemble d'attributs créés par le W3C. Ils permettent de communiquer des informations sur la nature, l'état et le comportement d'un composant aux technologies d'assistance (comme les lecteurs d'écran) lorsque le HTML natif ne suffit pas.
+                </p>
+                <h5>Les attribut d'états (<code>aria-*</code>) </h5>
+                <p>
+                    Ils décrivent l'état actuel ou les propriétés d'un élément, qui changent souvent lors des interactions utilisateur (JavaScript).
+                </p>
+                <ul>
+                    <li><code>aria-expended</code> : Indique si un élément extensible est déployé ou non (<code>true</code> ou <code>false</code>)</li>
+                    <li><code>aria-hidden</code> : Indique si un élément doit être caché à l'utilisateur, il le sera aux lecteurs d'écran (<code>true</code> ou <code>false</code>)</li>
+                    <li><code>aria-checked</code> : Indique l'état d'une case à cocher (<code>true</code>, <code>false</code> ou <code>mixed</code> )</li>
+                </ul>
+                <button aria-expanded="false" aria-controls="menu-mobile">Menu</button>
+                <nav id="menu-mobile" hidden>...</nav>
+                <h6>Règles pour aria</h6>
+                <ul>
+                    <li>On n'utilise pas ARIA si l'élément html natif existe déjà <code>&lt;button&gt;</code> est mieux que <code>&lt;div role="button"&gt;</code></li>
+                    <li>On ne modifie pas la sémantique native (pas de <code>&lt;h1 role="button"&gt;</code>)</li>
+                    <li>Ne pas oublier la navigation au clavier : les composants interactifs comportant des attributs aria doivent être accessibles et navigable au clavier (<code>tabindex="0"</code>)</li>
+                </ul>
+                <p>
+                    Les rôles définissent la fonction sémantique d'un élément
+                </p>
+                <ul>
+                    <li><code>role="button"</code> : transforme une balise neutre en bouton</li>
+                    <li><code>role="navigation"</code> : zone de navigation principale</li>
+                    <li><code>role="alert"</code> : message d'alerte urgent lu immédiatement</li>
+                </ul>
+                <h5>exemple rôle</h5>
+                <p>
+                    <span role="button" tabindex="0">Cliquez ici</span>
+                </p>
             </article>
         </section>
     </main>
