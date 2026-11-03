@@ -42,7 +42,7 @@
                 <li><a href="#structure-et-semantique-html5" target="_self" title="">Structure et sémantique HTML5</a></li>
                 <li><a href="#les-balises-de-structure-principales" target="_self" title="">Les balises de structure principales</a></li>
                 <li><a href="#composants-interactifs-et-modernes" target="_self" title="">Composants interactifs et modernes</a></li>
-                <li><a href="#accessibilite-web" target="_self" title="Accessibilité Web">Accessibilité Web</a></li>
+                <li><a href="#seo-et-metadonnees" target="_self" title="SEO métadonnées">SEO et métadonnées</a></li>
                 <li><a href="#" target="_self" title="">a</a></li>
                 <li><a href="#" target="_self" title="">a</a></li>
                 <li><a href="#" target="_self" title="">a</a></li>
@@ -177,6 +177,106 @@
                 <h5>exemple rôle</h5>
                 <p>
                     <span role="button" tabindex="0">Cliquez ici</span>
+                </p>
+            </article>
+            <article>
+                <header>
+                    <h2 id="seo-et-metadonnees">SEO et métadonnées</h2>
+                </header>
+                <ul>
+                    <li>Balises <code>meta</code> essentielles : <code>charset, viewport</code></li>
+                    <li>Open Graph <code>og:*</code></li>
+                    <li>Structured Data <code>JSON-LD</code></li>
+                    <li>Performance et chargement <code>loading="lazy"</code> - <code>decoding="async"</code> </li>
+                </ul>
+                <h3>Configuration de l'encodage <code>charset </code></h3>
+                <p>
+                    <code>&lt;meta charset="UTF-8"&gt;</code> : Définit l'encodage des caractères de la page.
+                    UTF-8 est la norme mondiale universelle qui prend en charge tous les accents, symboles et alphabets.
+                </p>
+                <h3><code>viewport</code></h3>
+                <p>
+                    Indique aux appareils mobiles (smartphones, tablettes) d'adapter la largeur de la page à la largeur de l'écran et de définir l'échelle de zoom initiale à 100%. C'est la base absolue du Responsive Design.
+                </p>
+                <p>
+                    <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code>
+                </p>
+                <h3>Open Graph</h3>
+                <p>
+                    Créées à l'origine par Facebook, elles sont aujourd'hui utilisées par la quasi-totalité des réseaux sociaux (LinkedIn, Twitter/X, Discord, etc.). Elles contrôlent précisément l'affichage d'une page lorsqu'elle est partagée sous forme de carte riche (titre, image, description).
+                </p>
+                <h4>meta principales</h4>
+                <ul>
+                    <li><code>og:title</code> : Le titre affiché sur la carte.</li>
+                    <li><code>og:description</code> : Le texte de description.</li>
+                    <li><code>og:image</code> : L'URL absolue de l'image d'illustration.</li>
+                    <li><code>og:url</code> : L'URL canonique de la page.</li>
+                </ul>
+                <p>
+                    <code>
+                        &lt;meta property="og:title" content="Mon Super Article"&gt;<br />
+                        &lt;meta property="og:description" content="Découvrez les meilleures astuces HTML et SEO."&gt;<br />
+                        &lt;meta property="og:image" content="https://monsite.com/images/partage.jpg"&gt;<br />
+                        &lt;meta property="og:url" content="https://monsite.com/article"&gt;
+                    </code>
+                </p>
+                <!--
+                <pre>
+&lt;meta property="og:title" content="Mon Super Article"&gt;
+&lt;meta property="og:description" content="Découvrez les meilleures astuces HTML et SEO."&gt;
+&lt;meta property="og:image" content="https://monsite.com/images/partage.jpg"&gt;
+&lt;meta property="og:url" content="https://monsite.com/article"&gt;
+                </pre>
+                -->
+                <h3>Structured Data : <code>JSON-LD</code></h3>
+                <p>
+                    Permet de fournir aux moteurs de recherche (Google) des informations normalisées et ultra-précises sur le contenu de la page (un produit, une recette, un événement, une entreprise). 
+                    Cela permet d'obtenir des rich snippets (les résultats enrichis avec des étoiles, des prix, des FAQ) dans les pages de résultats Google.
+                </p>
+                <p>
+                    On utilise du JSON-LD (JavaScript Object Notation for Linked Data), placé généralement dans une balise <code>&lt;script type="application/ld+json"&gt;</code> dans le <code>&lt;head&gt;</code> ou le <code>&lt;body&gt;</code>.
+                </p>
+                <p>
+                    <code>
+                        &lt;script type="application/ld+json"&gt;<br />
+                        {<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;"@context": "https://schema.org",<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;"@type": "Organization",<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;"name": "Mon Site Web",<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;"url": "https://monsite.com",<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;"logo": "https://monsite.com/logo.png"<br />
+                        }<br />
+                        &lt;/script&gt;
+                    </code>
+                </p>
+                <h3>Perfomance et chargement</h3>
+                <h4>Attribut <code>loadin="lazy"</code></h4>
+                <p>
+                    Permet de différer le chargement des images ou des &lt;iframe&gt; (vidéos YouTube, cartes Google Maps) situées en dehors de l'écran visible initialement (below the fold). Le navigateur ne les télécharge que lorsque l'utilisateur s'apprête à les faire défiler.
+                </p>
+                <ul>
+                    <li>lazy (différé)</li>
+                    <li>eager (chargement immediat, par défaut)</li>
+                </ul>
+                <p>
+                    <code>
+                        &lt;img src="grande-image.jpg" alt="Illustration" loading="lazy" width="800" height="600"&gt;
+                    </code>
+                </p>
+                <p>
+                    Indispensable pour améliorer les performances (Core Web Vitals) et économiser la bande passante, mais à ne pas utiliser sur les images prioritaires du haut de page (Hero images).
+                </p>
+                <h3>attribut <code>deconding="async"</code></h3>
+                <p>
+                    Indique au navigateur qu'il peut décoder l'image de manière asynchrone, en arrière-plan, sans bloquer l'affichage ou le rendu du reste de la page (le texte, la structure).
+                </p>
+                <p>
+                    <code>
+                        &lAarr;img src="photo.jpg" alt="Exemple" decoding="async"&gt;
+                    </code>
+                </p>
+                <p>
+                    Idéal combiné à <code>loading="lazy"</code> pour fluidifier l'expérience utilisateur et éliminer les micro-saccades lors du défilement.
                 </p>
             </article>
         </section>
