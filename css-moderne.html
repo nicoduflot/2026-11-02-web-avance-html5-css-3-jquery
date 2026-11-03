@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,25 +9,29 @@
     structure-et-semantique-html5
     -->
     <!-- appel des fichiers css et js -->
-     <script language="javascript">
-        window.addEventListener('DOMContentLoaded', function(){
-            document.getElementById('testDialog').addEventListener('click', function(){
+
+    <link rel="stylesheet" href="./css/style.css" media="screen" />
+    <script language="javascript">
+        window.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('testDialog').addEventListener('click', function () {
                 const saisieDialog = document.getElementById('saisieDialog').value;
                 console.log(saisieDialog);
             });
         });
     </script>
 </head>
+
 <body>
     <header role="banner">
         <div>
-            Formation Webmaster Avancé 
+            Formation Webmaster Avancé
         </div>
     </header>
     <nav role="navigation">
         <ul>
             <li>
-                <a href="./index.html" title="introduction webmaster avancé" target="_self">Structure et sémantique HTML5</a>
+                <a href="./index.html" title="introduction webmaster avancé" target="_self">Structure et sémantique
+                    HTML5</a>
             </li>
             <li>
                 <a href="./css-moderne.html" title="CSS moderne" target="_self">CSS moderne</a>
@@ -35,19 +40,54 @@
     </nav>
     <main>
         <header>
-            <h1 id="css-modernes-modeles-de-disposition-et-responsive-web-design">CSS Modernes, Modèles de Disposition et Responsive Web Design</h1>
+            <h1 id="css-modernes-modeles-de-disposition-et-responsive-web-design">CSS Modernes, Modèles de Disposition
+                et Responsive Web Design</h1>
         </header>
         <aside>
             <ul>
-                <li><a href="#" target="_self" title=""></a></li>
+                <li><a href="#fondations-css-moderne" target="_self" title="">Fondations CSS moderne</a></li>
             </ul>
         </aside>
         <section>
             <article>
                 <header>
-                    <h2 id=""></h2>
+                    <h2 id="fondations-css-moderne"></h2>
                 </header>
-                
+                <h3>Ajouter du CSS aux pages html</h3>
+                <p>
+                    il faut créer un fichier avec l'extension .css et le lier aux pages qui l'appliqueront à l'aide
+                    d'une balise <code>&lt;link&gt;</code>.
+                </p>
+                <p>
+                    <code>&lt;link rel="stylesheet" href="./css/style.css" media="screen"&gt;</code><br />
+                    <code>&lt;link rel="stylesheet" href="./css/print.css" media="print"&gt;</code>
+                </p>
+                <h3>Le CSS navigateur</h3>
+                <p>
+                    Les navigateurs possèdent leur propre CSS de base (user agent stylesheet ou feuille de style de l'agent utilisateur) qu'ils appliquent par défaut à toutes pages ouverte.
+                    Les CSS qu'on ajoute va ajouter ou supplanter des propriétés à ce CSS.
+                </p>
+                <p>
+                    La plupart des navigateur utilisent la même base CSS, avec des concepts hérité des premières pages HTML des années 90, comme beaucoup de site (sinon  la plupart) sont construits par rapport à ce CSS, il est impossible de purement le supprimer ou de le réformer dans les navigateurs.
+                </p>
+                <h4>Les marges imposées</h4>
+                <p>
+                    Beaucoup de marges extérieures (<code>margin</code>) sont imposées par le navigateur. La plupart ne sont pas gênantes en revanche celles, par exemple, imposées à l'élément <code>&lt;body&gt;</code> peuvent rendre une mise en page impossible.
+                </p>
+                <h4>Les tailles des éléments</h4>
+                <p>
+                    Par défaut, quand on impose une taille (hauteur ou largeur) à un élément, le usezr agent utilise le calcul content-box, c'est à dire que la taille est imposée au contenue, sans tenir compte des marges intérieures (padding) et de la largeur des bordures.
+                </p>
+                <div style="box-sizing: content-box; width: 200px; border: 1px solid black;height: 200px; margin: 1rem;padding: 1rem;">
+                    <p>
+                        largeur 200px, hauteur 100px, content-box
+                    </p>
+                </div>
+                <div style="box-sizing: border-box; width: 200px; border: 1px solid black;height: 200px; margin: 1rem;padding: 1rem;">
+                    <p>
+                        largeur 200px, hauteur 100px, border-box
+                    </p>
+                </div>
             </article>
         </section>
     </main>
@@ -57,4 +97,5 @@
         </div>
     </footer>
 </body>
+
 </html>
