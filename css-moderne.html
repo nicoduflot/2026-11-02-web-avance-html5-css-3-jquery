@@ -50,14 +50,19 @@
                     <ol type="a">
                         <li><a href="#attacher-css" target="_self" title="">Ajouter du CSS aux pages HTML</a></li>
                         <li><a href="#css-navigateur" target="_self" title="">Le CSS du navigateur</a></li>
-                        <li><a href="#selecteurs-pseudo-classes" target="_self" title="">Sélecteurs et pseudo-classes</a></li>
-                        <li><a href="#pseudo-classes-d-etat-pseudo-elements" target="_self" title="">Pseudo-classes d'état et pseudo-éléments</a></li>
-                        <li><a href="#declaration-globale" target="_self" title="">Déclaration globale :root et portée locale</a></li>
+                        <li><a href="#selecteurs-pseudo-classes" target="_self" title="">Sélecteurs et
+                                pseudo-classes</a></li>
+                        <li><a href="#pseudo-classes-d-etat-pseudo-elements" target="_self" title="">Pseudo-classes
+                                d'état et pseudo-éléments</a></li>
+                        <li><a href="#declaration-globale" target="_self" title="">Déclaration globale :root et portée
+                                locale</a></li>
                     </ol>
                 </li>
-                <li><a href="#modeles-dispo-contemporains" target="_self" title="">Modèles de Disposition Contemporains</a>
+                <li><a href="#modeles-dispo-contemporains" target="_self" title="">Modèles de Disposition
+                        Contemporains</a>
                     <ol type="a">
                         <li><a href="#flexbox">Flexbox</a></li>
+                        <li><a href="#css-grid">CSS grid</a></li>
                     </ol>
                 </li>
             </ul>
@@ -78,26 +83,35 @@
                 </p>
                 <h3 id="css-navigateur">Le CSS navigateur</h3>
                 <p>
-                    Les navigateurs possèdent leur propre CSS de base (user agent stylesheet ou feuille de style de l'agent utilisateur) qu'ils appliquent par défaut à toutes pages ouverte.
+                    Les navigateurs possèdent leur propre CSS de base (user agent stylesheet ou feuille de style de
+                    l'agent utilisateur) qu'ils appliquent par défaut à toutes pages ouverte.
                     Les CSS qu'on ajoute va ajouter ou supplanter des propriétés à ce CSS.
                 </p>
                 <p>
-                    La plupart des navigateur utilisent la même base CSS, avec des concepts hérité des premières pages HTML des années 90, comme beaucoup de site (sinon  la plupart) sont construits par rapport à ce CSS, il est impossible de purement le supprimer ou de le réformer dans les navigateurs.
+                    La plupart des navigateur utilisent la même base CSS, avec des concepts hérité des premières pages
+                    HTML des années 90, comme beaucoup de site (sinon la plupart) sont construits par rapport à ce CSS,
+                    il est impossible de purement le supprimer ou de le réformer dans les navigateurs.
                 </p>
                 <h4>Les marges imposées</h4>
                 <p>
-                    Beaucoup de marges extérieures (<code>margin</code>) sont imposées par le navigateur. La plupart ne sont pas gênantes en revanche celles, par exemple, imposées à l'élément <code>&lt;body&gt;</code> peuvent rendre une mise en page impossible.
+                    Beaucoup de marges extérieures (<code>margin</code>) sont imposées par le navigateur. La plupart ne
+                    sont pas gênantes en revanche celles, par exemple, imposées à l'élément <code>&lt;body&gt;</code>
+                    peuvent rendre une mise en page impossible.
                 </p>
                 <h4>Les tailles des éléments</h4>
                 <p>
-                    Par défaut, quand on impose une taille (hauteur ou largeur) à un élément, le usezr agent utilise le calcul content-box, c'est à dire que la taille est imposée au contenue, sans tenir compte des marges intérieures (padding) et de la largeur des bordures.
+                    Par défaut, quand on impose une taille (hauteur ou largeur) à un élément, le usezr agent utilise le
+                    calcul content-box, c'est à dire que la taille est imposée au contenue, sans tenir compte des marges
+                    intérieures (padding) et de la largeur des bordures.
                 </p>
-                <div style="box-sizing: content-box; width: 200px; border: 1px solid black;height: 200px; margin: 1rem;padding: 1rem;">
+                <div
+                    style="box-sizing: content-box; width: 200px; border: 1px solid black;height: 200px; margin: 1rem;padding: 1rem;">
                     <p>
                         largeur 200px, hauteur 100px, content-box
                     </p>
                 </div>
-                <div style="box-sizing: border-box; width: 200px; border: 1px solid black;height: 200px; margin: 1rem;padding: 1rem;">
+                <div
+                    style="box-sizing: border-box; width: 200px; border: 1px solid black;height: 200px; margin: 1rem;padding: 1rem;">
                     <p>
                         largeur 200px, hauteur 100px, border-box
                     </p>
@@ -106,7 +120,8 @@
                 <h4>Sélecteurs avancés <code> :is() / :not(), :where(), :has()</code> </h4>
                 <ul>
                     <li>
-                        <code>:is()</code> (Le factoriseur) : Permet de regrouper plusieurs sélecteurs pour éviter les répétitions. Sa spécificité s'adapte à celle du sélecteur le plus fort qu'il contient.<br />
+                        <code>:is()</code> (Le factoriseur) : Permet de regrouper plusieurs sélecteurs pour éviter les
+                        répétitions. Sa spécificité s'adapte à celle du sélecteur le plus fort qu'il contient.<br />
                         <p>
                             <code>
                                 /* Au lieu d'écrire : header h1, header h2, header h3 */<br />
@@ -117,7 +132,9 @@
                         </p>
                     </li>
                     <li>
-                        <code>:where()</code> (Le factoriseur à spécificité nulle) : Fonctionne exactement comme :is(), mais sa spécificité est toujours de 0. C'est idéal pour créer des styles de base ou des frameworks CSS facilement écrasables.<br />
+                        <code>:where()</code> (Le factoriseur à spécificité nulle) : Fonctionne exactement comme :is(),
+                        mais sa spécificité est toujours de 0. C'est idéal pour créer des styles de base ou des
+                        frameworks CSS facilement écrasables.<br />
                         <p>
                             <code>
                                 :where(article, section) p {<br />
@@ -127,7 +144,8 @@
                         </p>
                     </li>
                     <li>
-                        <code>:has()</code> (Le "sélecteur parent") : La révolution CSS ! Il permet de cibler un élément parent en fonction de ses enfants ou de son contenu.<br />
+                        <code>:has()</code> (Le "sélecteur parent") : La révolution CSS ! Il permet de cibler un élément
+                        parent en fonction de ses enfants ou de son contenu.<br />
                         <p>
                             <code>
                                 /* Sélectionne le &lt;div class="card"&gt; qui CONTIENT une image */<br />
@@ -138,10 +156,14 @@
                         </p>
                     </li>
                 </ul>
-                <h3 id="pseudo-classes-d-etat-pseudo-elements">Pseudo-classes d'état et pseudo-éléments <code>::before, ::after, :focus-visible</code></h3>
+                <h3 id="pseudo-classes-d-etat-pseudo-elements">Pseudo-classes d'état et pseudo-éléments
+                    <code>::before, ::after, :focus-visible</code>
+                </h3>
                 <ul>
                     <li>
-                        ::before et ::after : Des pseudo-éléments qui permettent d'insérer dynamiquement du contenu généré (icônes, séparateurs, puces décoratives) avant ou après le contenu d'un élément. Obligatoire : l'utilisation de la propriété content.<br />
+                        ::before et ::after : Des pseudo-éléments qui permettent d'insérer dynamiquement du contenu
+                        généré (icônes, séparateurs, puces décoratives) avant ou après le contenu d'un élément.
+                        Obligatoire : l'utilisation de la propriété content.<br />
                         <p>
                             <code>
                                 button.login::after {<br />
@@ -151,7 +173,9 @@
                         </p>
                     </li>
                     <li>
-                        <code>:focus-visible</code> : Améliore l'accessibilité (a11y) et l'esthétique. Il applique un style de focus (contour) uniquement lorsque l'utilisateur navigue au clavier (touche Tab), et l'masque lors d'un clic de souris (évitant le vilain cadre bleu persistant après un clic).<br />
+                        <code>:focus-visible</code> : Améliore l'accessibilité (a11y) et l'esthétique. Il applique un
+                        style de focus (contour) uniquement lorsque l'utilisateur navigue au clavier (touche Tab), et
+                        l'masque lors d'un clic de souris (évitant le vilain cadre bleu persistant après un clic).<br />
                         <code>
                             button:focus-visible {<br />
                             &nbsp;&nbsp;&nbsp;&nbsp;outline: 3px solid #ff6b6b;<br />
@@ -159,7 +183,7 @@
                             }
                         </code><br />
                         <style>
-                            .focus-exemple:focus-visible{
+                            .focus-exemple:focus-visible {
                                 outline: 3px solid #ff6b6b;
                                 outline-offset: 0.125rem;
                             }
@@ -171,10 +195,13 @@
                 <h3 id="declaration-globale">Déclaration globale :root et portée locale</h3>
                 <ul>
                     <li>
-                        <b>Déclaration globale</b> <code>:root</code> : Le sélecteur :root cible la racine du document (équivalent à <html> mais avec une spécificité plus forte). C'est l'endroit idéal pour stocker les variables globales (palette de couleurs, typographies, espacements) accessibles partout.
+                        <b>Déclaration globale</b> <code>:root</code> : Le sélecteur :root cible la racine du document
+                        (équivalent à <html> mais avec une spécificité plus forte). C'est l'endroit idéal pour stocker
+                        les variables globales (palette de couleurs, typographies, espacements) accessibles partout.
                     </li>
                     <li>
-                        <b>Portée locale</b> : Une variable peut être déclarée dans n'importe quel sélecteur (ex: un composant spécifique). Elle ne sera alors accessible que dans cet élément et ses enfants.<br />
+                        <b>Portée locale</b> : Une variable peut être déclarée dans n'importe quel sélecteur (ex: un
+                        composant spécifique). Elle ne sera alors accessible que dans cet élément et ses enfants.<br />
                         <p>
                             <code>
                                 :root {<br />
@@ -196,7 +223,8 @@
                     </li>
                     <li>
                         La fonction <code>var()</code><br />
-                        Pour utiliser une variable, on utilise la fonction var(). On peut également lui fournir une valeur de secours (fallback) au cas où la variable ne serait pas définie.<br />
+                        Pour utiliser une variable, on utilise la fonction var(). On peut également lui fournir une
+                        valeur de secours (fallback) au cas où la variable ne serait pas définie.<br />
                         <p>
                             <code>
                                 :root {<br />
@@ -218,7 +246,8 @@
                 </header>
                 <h3 id="flexbox">Flexbox</h3>
                 <p>
-                    Flexbox est idéal pour aligner des éléments dans une seule direction à la fois (soit une ligne, soit une colonne).
+                    Flexbox est idéal pour aligner des éléments dans une seule direction à la fois (soit une ligne, soit
+                    une colonne).
                 </p>
                 <h4>Les axes : principal et transversal</h4>
                 <p>
@@ -230,32 +259,80 @@
                 </ul>
                 <style>
                     .exemple-flexbox-row,
-                    .exemple-flexbox-column{
+                    .exemple-flexbox-column {
                         border: 1px solid #333333;
                         display: flex;
                         flex-wrap: wrap;
-                        justify-content:flex-start;
+                        justify-content: flex-start;
                         margin: 1rem;
-                        padding: 0.25rem;
-                    }
-                    /* Axe principal horizontal */
-                    .exemple-flexbox-row{
-                        flex-direction: row;
-                        height: 12rem;
-                        align-items:baseline;
-                    }
-                    
-                    /* Axe principal vertical */
-                    .exemple-flexbox-column{
-                        flex-direction: column;
-                        height: 12rem;
-                        align-items:baseline;
+                        padding: var(--gap, 0.25rem);
                     }
 
-                    .divbox{
+                    /* Axe principal horizontal */
+                    .exemple-flexbox-row {
+                        --gap: 0.25rem;
+                        flex-direction: row;
+                        /*height: 12rem;*/
+                        align-items: baseline;
+                    }
+
+                    /* Axe principal vertical */
+                    .exemple-flexbox-column {
+                        flex-direction: column;
+                        height: 12rem;
+                        align-items: baseline;
+                    }
+
+                    .divbox {
                         border: 1px solid #333333;
-                        margin: 0.25rem;
+                        margin: calc(var(--gap)/2);
                         padding: 0.25rem;
+                    }
+
+                    .exemple-flexbox-row .divbox {
+                        width: calc(100% - var(--gap));
+                        --column-1-2: calc(50% - var(--gap));
+                        --column-1-3: calc((100% / 3) - var(--gap));
+                        --column-1-4: calc(25% - var(--gap));
+                        --column-1-5: calc(20% - var(--gap));
+                        --column-1-6: calc((100% / 6) - var(--gap));
+                        --column-1-7: calc((100% / 7) - var(--gap));
+                    }
+
+                    @media screen and (min-width: 576px) {
+                        .exemple-flexbox-row .divbox {
+                            width: var(--column-1-2);
+                        }
+                    }
+
+                    @media screen and (min-width: 768px) {
+                        .exemple-flexbox-row .divbox {
+                            width: var(--column-1-3);
+                        }
+                    }
+
+                    @media screen and (min-width: 992px) {
+                        .exemple-flexbox-row .divbox {
+                            width: var(--column-1-4);
+                        }
+                    }
+
+                    @media screen and (min-width: 1200px) {
+                        .exemple-flexbox-row .divbox {
+                            width: var(--column-1-5);
+                        }
+                    }
+
+                    @media screen and (min-width: 1400px) {
+                        .exemple-flexbox-row .divbox {
+                            width: var(--column-1-6);
+                        }
+                    }
+
+                    @media screen and (min-width: 1600px) {
+                        .exemple-flexbox-row .divbox {
+                            width: var(--column-1-7);
+                        }
                     }
                 </style>
                 <h5>Axe principal horizontal</h5>
@@ -288,6 +365,197 @@
                     <div class="divbox">div-11</div>
                     <div class="divbox">div-12</div>
                 </div>
+                <h3 id="css-grid">CSS grid</h3>
+                <p>
+                    CSS Grid est le roi absolu pour structurer une page entière ou des composants complexes sur deux
+                    dimensions (lignes et colonnes en même temps).
+                </p>
+                <h4>Définition et espacement</h4>
+                <ul>
+                    <li>grid-template-columns / grid-template-rows : Définissent la structure. L'unité magique fr
+                        représente une fraction de l'espace disponible.</li>
+                    <li>gap : Remplace avantageusement les marges pour créer des espaces propres (gouttières) entre les
+                        cellules.</li>
+                </ul>
+                <style>
+                    .exemple-grid,
+                    .exemple-area {
+                        border: 1px solid #333333;
+                    }
+
+                    .exemple-grid {
+                        display: grid;
+                        gap: 0.5rem;
+                        padding: 0.5rem;
+                        grid-template-columns: 1fr;
+                    }
+
+                    .divgrid {
+                        border: 1px solid #333333;
+                        padding: 0.25rem;
+                    }
+
+                    @media screen and (min-width: 576px) {
+                        .exemple-grid {
+                            grid-template-columns: repeat(2, 1fr);
+                        }
+                    }
+
+                    @media screen and (min-width: 768px) {
+                        .exemple-grid {
+                            grid-template-columns: repeat(3, 1fr);
+                        }
+                    }
+
+                    @media screen and (min-width: 992px) {
+                        .exemple-grid {
+                            grid-template-columns: repeat(4, 1fr);
+                        }
+                    }
+
+                    @media screen and (min-width: 1200px) {
+                        .exemple-grid {
+                            grid-template-columns: repeat(5, 1fr);
+                        }
+                    }
+
+                    @media screen and (min-width: 1400px) {
+                        .exemple-grid {
+                            grid-template-columns: repeat(6, 1fr);
+                        }
+                    }
+
+                    @media screen and (min-width: 1600px) {
+                        .exemple-grid {
+                            grid-template-columns: repeat(7, 1fr);
+                        }
+                    }
+                </style>
+                <div class="exemple-grid">
+                    <div class="divgrid" id="div-01">div-01</div>
+                    <div class="divgrid" id="div-02">div-02</div>
+                    <div class="divgrid" id="div-03">div-03</div>
+                    <div class="divgrid" id="div-04">div-04</div>
+                    <div class="divgrid" id="div-05">div-05</div>
+                    <div class="divgrid" id="div-06">div-06</div>
+                    <div class="divgrid" id="div-07">div-07</div>
+                    <div class="divgrid" id="div-08">div-08</div>
+                    <div class="divgrid" id="div-09">div-09</div>
+                    <div class="divgrid" id="div-10">div-10</div>
+                    <div class="divgrid" id="div-11">div-11</div>
+                    <div class="divgrid" id="div-12">div-12</div>
+                </div>
+                <h4>Placement explicite et zones nommées (grid-template-areas)</h4>
+                <p>
+                    On peut "dessiner" sa mise en page directement dans le CSS en donnant des noms aux zones
+                </p>
+                <style>
+                    .exemple-area {
+                        display: grid;
+                        grid-template-areas:
+                            "header"
+                            "content"
+                            "sidebar"
+                            "footer"
+                        ;
+                    }
+
+                    #grid-header {
+                        grid-area: header;
+                    }
+
+                    #grid-content {
+                        grid-area: content;
+                    }
+
+                    #grid-sidebar {
+                        grid-area: sidebar;
+                    }
+
+                    #grid-footer {
+                        grid-area: footer;
+                    }
+
+                    @media screen and (min-width: 992px) {
+                        .exemple-area {
+                            grid-template-columns: 200px 1fr;
+                            grid-template-areas:
+                                "header header"
+                                "sidebar content"
+                                "footer footer"
+                            ;
+                        }
+                    }
+                </style>
+                <div class="exemple-area">
+                    <div class="divgrid" id="grid-header">
+                        <header>
+                            <p>titre site</p>
+                        </header>
+                        <nav role="navigation">
+                            <p>
+                                navigation
+                            </p>
+                            <ul>
+                                <li>lien</li>
+                                <li>lien</li>
+                                <li>lien</li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="divgrid" id="grid-content">
+                        <p>
+                            contenu principal
+                        </p>
+                        <div class="exemple-grid">
+                            <div class="divgrid" id="div-01">div-01</div>
+                            <div class="divgrid" id="div-02">div-02</div>
+                            <div class="divgrid" id="div-03">div-03</div>
+                            <div class="divgrid" id="div-04">div-04</div>
+                            <div class="divgrid" id="div-05">div-05</div>
+                            <div class="divgrid" id="div-06">div-06</div>
+                            <div class="divgrid" id="div-07">div-07</div>
+                            <div class="divgrid" id="div-08">div-08</div>
+                            <div class="divgrid" id="div-09">div-09</div>
+                            <div class="divgrid" id="div-10">div-10</div>
+                            <div class="divgrid" id="div-11">div-11</div>
+                            <div class="divgrid" id="div-12">div-12</div>
+                        </div>
+                    </div>
+                    <div class="divgrid" id="grid-sidebar">
+                        <p>
+                            sidebar
+                        </p>
+                        <ul>
+                            <li>menu sidebar</li>
+                            <li>menu sidebar</li>
+                            <li>menu sidebar</li>
+                            <li>menu sidebar</li>
+                        </ul>
+                    </div>
+                    <div class="divgrid" id="grid-footer">
+                        <p>
+                            pied
+                        </p>
+                        <footer>
+                            <div class="copyright">Dawan</div>
+                        </footer>
+                    </div>
+                </div>
+                <h4>Fonctions et mot-clefs avancés</h4>
+                <ul>
+                    <li>repeat() : Évite les répétitions fastidieuses.
+                        <code>grid-template-columns: repeat(3, 1fr);</code> (crée 3 colonnes égales).
+                    </li>
+                    <li>minmax() : Fixe des limites de taille flexible.
+                        <code>grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));</code>
+                    </li>
+                    <li>auto-fit / auto-fill : Permet de créer des grilles ultra-réactives (responsive) sans la moindre
+                        Media Query. Le navigateur ajoute ou supprime des colonnes tout seul selon la taille de l'écran.
+                    </li>
+                </ul>
+                <h3 id="media-queries">Media queries</h3>
+                
             </article>
         </section>
     </main>

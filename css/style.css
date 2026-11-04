@@ -179,3 +179,71 @@ p code{
     content: "\00A9"; /*  00A9 unicode CSS pour le copyright */
     padding: 0 0.5rem;
 }
+
+/* déclarations d'après l'architecture html */
+
+body > header > *,
+body > nav > *,
+main,
+body > footer > *
+{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* déclaration des media queries */
+
+@media screen and (min-width: 576px) {
+    body > header > *,
+    body > nav > *,
+    main,
+    body > footer > *{
+        width: 540px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    body > header > *,
+    body > nav > *,
+    main,
+    body > footer > *{
+        width: 720px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    body > header > *,
+    body > nav > *,
+    main,
+    body > footer > *{
+        width: 960px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    body > header > *,
+    body > nav > *,
+    main,
+    body > footer > *{
+        width: 1140px;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    body > header > *,
+    body > nav > *,
+    main,
+    body > footer > *{
+        width: 1320px;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    body > header > *,
+    body > nav > *,
+    main,
+    body > footer > *{
+        width: 1560px;
+    }
+}
