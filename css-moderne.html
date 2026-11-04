@@ -4,21 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Structure et sémantique HTML5 | Formation Webmaster Avancé</title>
+    <title>CSS moderne | Formation Webmaster Avancé</title>
     <!-- 
     structure-et-semantique-html5
     -->
     <!-- appel des fichiers css et js -->
 
     <link rel="stylesheet" href="./css/style.css" media="screen" />
-    <script language="javascript">
-        window.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('testDialog').addEventListener('click', function () {
-                const saisieDialog = document.getElementById('saisieDialog').value;
-                console.log(saisieDialog);
-            });
-        });
-    </script>
 </head>
 
 <body>
@@ -35,6 +27,9 @@
             </li>
             <li>
                 <a href="./css-moderne.html" title="CSS moderne" target="_self">CSS moderne</a>
+            </li>
+            <li>
+                <a href="./rappels-js.html" title="Rappels JS" target="_self">Rappels JS</a>
             </li>
         </ul>
     </nav>
@@ -555,7 +550,32 @@
                     </li>
                 </ul>
                 <h3 id="media-queries">Media queries</h3>
-                
+                <h4>Mobile-first</h4>
+                <p>
+                    Qu'est-ce que c'est ? C'est une méthodologie de conception où l'on écrit le CSS de base pour les petits écrans (smartphones) en premier, puis on ajoute des styles pour les écrans plus grands via des media queries min-width.
+                </p>
+                <p>
+                    Pourquoi ?
+                </p>
+                <ul>
+                    <li>Les mobiles ont des contraintes de performance et de réseau plus strictes (on va à l'essentiel).</li>
+                    <li>Le code CSS est plus léger, plus facile à maintenir et s'enrichit progressivement (Progressive Enhancement).</li>
+                </ul>
+                <h4>media queries</h4>
+                <p>
+                    CSS moderne permet d'utiliser des opérateurs mathématiques (<=, >=, <) beaucoup plus intuitifs que les anciens min-width et max-width.
+                </p>
+                <p>
+                    <code>
+                        /* Cible les écrans entre 768px et 1024px */<br />
+                        @media (768px <= width <= 1024px) {<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;.element { background-color: tomato; }<br />
+                        }<br />
+                        <br />
+                        /* Équivalent de min-width: 768px */<br />
+                        @media (width >= 768px) { ... }
+                    </code>
+                </p>
             </article>
         </section>
     </main>
