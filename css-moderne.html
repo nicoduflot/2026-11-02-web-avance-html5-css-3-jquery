@@ -57,7 +57,7 @@
                 </li>
                 <li><a href="#modeles-dispo-contemporains" target="_self" title="">Modèles de Disposition Contemporains</a>
                     <ol type="a">
-                        
+                        <li><a href="#flexbox">Flexbox</a></li>
                     </ol>
                 </li>
             </ul>
@@ -216,6 +216,78 @@
                 <header>
                     <h2 id="modeles-dispo-contemporains">Modèles de Disposition Contemporains</h2>
                 </header>
+                <h3 id="flexbox">Flexbox</h3>
+                <p>
+                    Flexbox est idéal pour aligner des éléments dans une seule direction à la fois (soit une ligne, soit une colonne).
+                </p>
+                <h4>Les axes : principal et transversal</h4>
+                <p>
+                    Le conteneur flex possède deux axes :
+                </p>
+                <ul>
+                    <li>L'axe principal (main axis) : Défini par flex-direction.</li>
+                    <li>L'axe transversal (cross axis) : Perpendiculaire à l'axe principal.</li>
+                </ul>
+                <style>
+                    .exemple-flexbox-row,
+                    .exemple-flexbox-column{
+                        border: 1px solid #333333;
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content:flex-start;
+                        margin: 1rem;
+                        padding: 0.25rem;
+                    }
+                    /* Axe principal horizontal */
+                    .exemple-flexbox-row{
+                        flex-direction: row;
+                        height: 12rem;
+                        align-items:baseline;
+                    }
+                    
+                    /* Axe principal vertical */
+                    .exemple-flexbox-column{
+                        flex-direction: column;
+                        height: 12rem;
+                        align-items:baseline;
+                    }
+
+                    .divbox{
+                        border: 1px solid #333333;
+                        margin: 0.25rem;
+                        padding: 0.25rem;
+                    }
+                </style>
+                <h5>Axe principal horizontal</h5>
+                <div class="exemple-flexbox-row">
+                    <div class="divbox">div-01</div>
+                    <div class="divbox">div-02</div>
+                    <div class="divbox">div-03</div>
+                    <div class="divbox">div-04</div>
+                    <div class="divbox">div-05</div>
+                    <div class="divbox">div-06</div>
+                    <div class="divbox">div-07</div>
+                    <div class="divbox">div-08</div>
+                    <div class="divbox">div-09</div>
+                    <div class="divbox">div-10</div>
+                    <div class="divbox">div-11</div>
+                    <div class="divbox">div-12</div>
+                </div>
+                <h5>Axe principal vertical</h5>
+                <div class="exemple-flexbox-column">
+                    <div class="divbox">div-01</div>
+                    <div class="divbox">div-02</div>
+                    <div class="divbox">div-03</div>
+                    <div class="divbox">div-04</div>
+                    <div class="divbox">div-05</div>
+                    <div class="divbox">div-06</div>
+                    <div class="divbox">div-07</div>
+                    <div class="divbox">div-08</div>
+                    <div class="divbox">div-09</div>
+                    <div class="divbox">div-10</div>
+                    <div class="divbox">div-11</div>
+                    <div class="divbox">div-12</div>
+                </div>
             </article>
         </section>
     </main>
