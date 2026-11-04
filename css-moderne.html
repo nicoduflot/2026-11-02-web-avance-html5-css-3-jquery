@@ -46,6 +46,11 @@
         <aside>
             <ul>
                 <li><a href="#fondations-css-moderne" target="_self" title="">Fondations CSS moderne</a></li>
+                <li><a href="#attacher-css" target="_self" title="">Ajouter du CSS aux pages HTML</a></li>
+                <li><a href="#css-navigateur" target="_self" title="">Le CSS du navigateur</a></li>
+                <li><a href="#selecteurs-pseudo-classes" target="_self" title="">Sélecteurs et pseudo-classes</a></li>
+                <li><a href="#pseudo-classes-d-etat-pseudo-elements" target="_self" title="">Pseudo-classes d'état et pseudo-éléments</a></li>
+                <li><a href="#declaration-globale" target="_self" title="">Déclaration globale :root et portée locale</a></li>
             </ul>
         </aside>
         <section>
@@ -53,7 +58,7 @@
                 <header>
                     <h2 id="fondations-css-moderne"></h2>
                 </header>
-                <h3>Ajouter du CSS aux pages html</h3>
+                <h3 id="attacher-css">Ajouter du CSS aux pages html</h3>
                 <p>
                     il faut créer un fichier avec l'extension .css et le lier aux pages qui l'appliqueront à l'aide
                     d'une balise <code>&lt;link&gt;</code>.
@@ -62,7 +67,7 @@
                     <code>&lt;link rel="stylesheet" href="./css/style.css" media="screen"&gt;</code><br />
                     <code>&lt;link rel="stylesheet" href="./css/print.css" media="print"&gt;</code>
                 </p>
-                <h3>Le CSS navigateur</h3>
+                <h3 id="css-navigateur">Le CSS navigateur</h3>
                 <p>
                     Les navigateurs possèdent leur propre CSS de base (user agent stylesheet ou feuille de style de l'agent utilisateur) qu'ils appliquent par défaut à toutes pages ouverte.
                     Les CSS qu'on ajoute va ajouter ou supplanter des propriétés à ce CSS.
@@ -88,7 +93,7 @@
                         largeur 200px, hauteur 100px, border-box
                     </p>
                 </div>
-                <h3>Sélecteurs et pseudo-classes</h3>
+                <h3 id="selecteurs-pseudo-classes">Sélecteurs et pseudo-classes</h3>
                 <h4>Sélecteurs avancés <code> :is() / :not(), :where(), :has()</code> </h4>
                 <ul>
                     <li>
@@ -124,7 +129,7 @@
                         </p>
                     </li>
                 </ul>
-                <h3>Pseudo-classes d'état et pseudo-éléments <code>::before, ::after, :focus-visible</code></h3>
+                <h3 id="pseudo-classes-d-etat-pseudo-elements">Pseudo-classes d'état et pseudo-éléments <code>::before, ::after, :focus-visible</code></h3>
                 <ul>
                     <li>
                         ::before et ::after : Des pseudo-éléments qui permettent d'insérer dynamiquement du contenu généré (icônes, séparateurs, puces décoratives) avant ou après le contenu d'un élément. Obligatoire : l'utilisation de la propriété content.<br />
@@ -154,7 +159,7 @@
                         <button class="focus-exemple">Toto</button><br />
                     </li>
                 </ul>
-                <h3>Déclaration globale :root et portée locale</h3>
+                <h3 id="declaration-globale">Déclaration globale :root et portée locale</h3>
                 <ul>
                     <li>
                         <b>Déclaration globale</b> <code>:root</code> : Le sélecteur :root cible la racine du document (équivalent à <html> mais avec une spécificité plus forte). C'est l'endroit idéal pour stocker les variables globales (palette de couleurs, typographies, espacements) accessibles partout.
