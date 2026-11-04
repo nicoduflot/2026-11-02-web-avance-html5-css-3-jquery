@@ -88,6 +88,115 @@
                         largeur 200px, hauteur 100px, border-box
                     </p>
                 </div>
+                <h3>Sélecteurs et pseudo-classes</h3>
+                <h4>Sélecteurs avancés <code> :is() / :not(), :where(), :has()</code> </h4>
+                <ul>
+                    <li>
+                        <code>:is()</code> (Le factoriseur) : Permet de regrouper plusieurs sélecteurs pour éviter les répétitions. Sa spécificité s'adapte à celle du sélecteur le plus fort qu'il contient.<br />
+                        <p>
+                            <code>
+                                /* Au lieu d'écrire : header h1, header h2, header h3 */<br />
+                                header :is(h1, h2, h3) {<br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;color: #333;<br />
+                                }<br />
+                            </code>
+                        </p>
+                    </li>
+                    <li>
+                        <code>:where()</code> (Le factoriseur à spécificité nulle) : Fonctionne exactement comme :is(), mais sa spécificité est toujours de 0. C'est idéal pour créer des styles de base ou des frameworks CSS facilement écrasables.<br />
+                        <p>
+                            <code>
+                                :where(article, section) p {<br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;margin-bottom: 1rem; /* Très facile à surcharger ensuite */<br />
+                                }
+                            </code>
+                        </p>
+                    </li>
+                    <li>
+                        <code>:has()</code> (Le "sélecteur parent") : La révolution CSS ! Il permet de cibler un élément parent en fonction de ses enfants ou de son contenu.<br />
+                        <p>
+                            <code>
+                                /* Sélectionne le &lt;div class="card"&gt; qui CONTIENT une image */<br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;div.card:has(img) {<br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;padding: 0;<br />
+                                }
+                            </code>
+                        </p>
+                    </li>
+                </ul>
+                <h3>Pseudo-classes d'état et pseudo-éléments <code>::before, ::after, :focus-visible</code></h3>
+                <ul>
+                    <li>
+                        ::before et ::after : Des pseudo-éléments qui permettent d'insérer dynamiquement du contenu généré (icônes, séparateurs, puces décoratives) avant ou après le contenu d'un élément. Obligatoire : l'utilisation de la propriété content.<br />
+                        <p>
+                            <code>
+                                button.login::after {<br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;content: " →";<br />
+                                }
+                            </code>
+                        </p>
+                    </li>
+                    <li>
+                        <code>:focus-visible</code> : Améliore l'accessibilité (a11y) et l'esthétique. Il applique un style de focus (contour) uniquement lorsque l'utilisateur navigue au clavier (touche Tab), et l'masque lors d'un clic de souris (évitant le vilain cadre bleu persistant après un clic).<br />
+                        <code>
+                            button:focus-visible {<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;outline: 3px solid #ff6b6b;<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;outline-offset: 2px;<br />
+                            }
+                        </code><br />
+                        <style>
+                            .focus-exemple:focus-visible{
+                                outline: 3px solid #ff6b6b;
+                                outline-offset: 0.125rem;
+                            }
+                        </style>
+                        <button>Toto</button><br />
+                        <button class="focus-exemple">Toto</button><br />
+                    </li>
+                </ul>
+                <h3>Déclaration globale :root et portée locale</h3>
+                <ul>
+                    <li>
+                        <b>Déclaration globale</b> <code>:root</code> : Le sélecteur :root cible la racine du document (équivalent à <html> mais avec une spécificité plus forte). C'est l'endroit idéal pour stocker les variables globales (palette de couleurs, typographies, espacements) accessibles partout.
+                    </li>
+                    <li>
+                        <b>Portée locale</b> : Une variable peut être déclarée dans n'importe quel sélecteur (ex: un composant spécifique). Elle ne sera alors accessible que dans cet élément et ses enfants.<br />
+                        <p>
+                            <code>
+                                :root {<br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;--main-color: #3498db; /* Globale */<br />
+                                }<br />
+                                <br />
+                                .card {<br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;--card-padding: 1.5rem; /* Locale (disponible uniquement dans .card) */<br />
+                                }<br />
+                                .card p{<br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;padding: var(--card-padding);/* applique la variable */<br />
+                                }
+                                
+                                header p{<br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;padding: var(--card-padding);/* n'applique pas la variable */<br />
+                                }
+                            </code>
+                        </p>
+                    </li>
+                    <li>
+                        La fonction <code>var()</code><br />
+                        Pour utiliser une variable, on utilise la fonction var(). On peut également lui fournir une valeur de secours (fallback) au cas où la variable ne serait pas définie.<br />
+                        <p>
+                            <code>
+                                :root {<br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;--main-color: #3498db; /* Un beau bleu */<br />
+                                }<br />
+                                .button {<br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;background-color: var(--main-color, #000); <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;/* Le navigateur trouve --main-color, <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;il applique donc : background-color: #3498db; */<br />
+                                }<br />
+                            </code>
+                        </p>
+                    </li>
+                </ul>
             </article>
         </section>
     </main>

@@ -126,6 +126,8 @@ sélecteur CSS :
                                                 paramètres :    4n => le nombre d'élément par ligne
                                                                 +3 => le troisième de la ligne
 
+Le CSS D.R.Y. => Don't Repeat Yourself
+
 */
 
 /*
@@ -137,14 +139,18 @@ import de css extérieurs
 /*
 modification de la racine (supplanter le user agent AVANT sont application)
 */
-
+/* :root => déclarations globales */
 :root{
+    /* variables CSS => --nom-de-la-variable */
     --main-font: Arial, Helvetica, sans-serif;
+    /* appeler une variable : fonction css var(--nom-de-la-variable) */
     font-family: var(--main-font);
     --main-font-size: 1.2rem;
     font-size: var(--main-font-size);
     --main-line-height: 1.4rem;
     line-height: var(--main-line-height);
+    scroll-behavior: smooth;
+    --taux-titres: 1.2;
 }
 
 /*
@@ -161,4 +167,15 @@ body{
 
 h1, h2, h3{
     line-height: 2rem;
+}
+
+p code{
+    word-break: break-all;
+}
+
+/* Déclarations des classes */
+
+.copyright::before{
+    content: "\00A9"; /*  00A9 unicode CSS pour le copyright */
+    padding: 0 0.5rem;
 }
