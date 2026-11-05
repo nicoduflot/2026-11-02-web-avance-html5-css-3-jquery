@@ -11,6 +11,7 @@
     <!-- appel des fichiers css et js -->
     <link rel="stylesheet" href="./css/style.css" media="screen" />
     <script language="javascript" src="./js/rappels-js.js" defer></script>
+    <script language="javascript" src="./js/storage.js" defer></script>
 </head>
 
 <body>
@@ -42,8 +43,14 @@
                 <li>
                     <a href="#rappels-javascript" target="_self" title="">Rappels Javascript</a>
                     <ol type="a">
-                        <li><a href="#variables-fonctions" target="_self" title="">Variables et fonction</a></li>
-                        <li><a href="#storage" target="_self" title="">Storage</a></li>
+                        <li><a href="#variables-fonctions" target="_self" title="">Variables et fonctions</a></li>
+                        <li><a href="#storage" target="_self" title="">Storage</a>
+                            <ol>
+                                <li><a href="#sessionStorage">Session Storage</a></li>
+                                <li><a href="#localStorage">Local Storage</a></li>
+                                <li><a href="#cookie's">Cookies</a></li>
+                            </ol>
+                        </li>
                     </ol>
                 </li>
             </ul>
@@ -51,14 +58,30 @@
         <section>
             <article>
                 <header>
-                    <h2 id="variables-fonctions">Variables et fonction</h2>
+                    <h2 id="variables-fonctions">Variables et fonctions</h2>
                 </header>
             </article>
             <article>
                 <header>
                     <h2 id="storage">Storage</h2>
                 </header>
-                <h3>Session Storage</h3>
+                <h3 id="sessionStorage">Session Storage</h3>
+                <p>
+                    <label for="sessionUser">Username</label><br />
+                    <input type="text" id="sessionUser" value="" placeholder="Votre username ici" />
+                </p>
+                <p>
+                    <label for="sessionUserLastName">Lastname</label><br />
+                    <input type="text" id="sessionUserLastName" value="" placeholder="Votre nom de famille ici" />
+                </p>
+                <p>
+                    <button onclick="createSession('sessionUser', 'sessionUserLastName')">Créer et ajouter clef et valeur / modifier la donnée de session</button> <br />
+                    <select id="sessionItem">
+                        
+                    </select>
+                    <button onclick="deleteSessionItem('sessionItem')">Supprimer la clef et la valeur</button>  <br />
+                    <button id="btnSessionClear" onclick="clearSession()">Supprimer tous les éléments de sessionStorage</button> 
+                </p>
                 <h3>Local Storage</h3>
                 <h3>Cookies</h3>
             </article>            
