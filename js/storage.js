@@ -94,3 +94,24 @@ function clearLocal(){
 
 appendSessionSelect();
 appendLocalSelect();
+
+
+/* Les cookies */
+/*
+pour créer un cookie, on va directement écrire le cookie, sa valeur, sa date d'expiration, le niveau de samesite et la securité dans 
+la liste des cookie : document.cookie
+*/
+function setCookie(name, value='', days = -1, path = '/'){
+    const maxAge = 60 * 60 * 24 * days;
+    document.cookie = `${name}=${value}; max-age=${maxAge}; path=${path}; Samesite=Strict; Secure`;
+    console.log(document.cookie);
+}
+
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) {
+        return decodeURIComponent(parts.pop().split(';').shift());
+    }
+    return null;
+}
