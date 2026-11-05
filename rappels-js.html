@@ -83,6 +83,22 @@
                     <button id="btnSessionClear" onclick="clearSession()">Supprimer tous les éléments de sessionStorage</button> 
                 </p>
                 <h3>Local Storage</h3>
+                <p>
+                    <label for="localUser">Username</label><br />
+                    <input type="text" id="localUser" value="" placeholder="Votre username ici" />
+                </p>
+                <p>
+                    <label for="localUserLastName">Lastname</label><br />
+                    <input type="text" id="localUserLastName" value="" placeholder="Votre nom de famille ici" />
+                </p>
+                <p>
+                    <button onclick="createLocal('localUser', 'localUserLastName')">Créer et ajouter clef et valeur / modifier la donnée de local</button> <br />
+                    <select id="localItem">
+                        
+                    </select>
+                    <button onclick="deleteLocalItem('localItem')">Supprimer la clef et la valeur</button>  <br />
+                    <button id="btnLocalClear" onclick="clearLocal()">Supprimer tous les éléments de sessionStorage</button> 
+                </p>
                 <h3>Cookies</h3>
             </article>            
         </section>

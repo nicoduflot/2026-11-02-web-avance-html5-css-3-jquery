@@ -7,10 +7,11 @@ function erase_childs(node){
     }
 }
 
+/* sessionStorage */
+
 function appendSessionSelect(){
     const select = document.getElementById('sessionItem');
     erase_childs(select);
-    /*<option>Choisissez l'élément item à surpprimer</option>*/
     const optDefault = document.createElement('option');
     optDefault.innerHTML ='Choisissez l\'élément item à surpprimer';
     select.append(optDefault);
@@ -49,4 +50,47 @@ function clearSession(){
     appendSessionSelect();
 }
 
+/* localStorage */
+
+function appendLocalSelect(){
+    const select = document.getElementById('localItem');
+    erase_childs(select);
+    const optDefault = document.createElement('option');
+    optDefault.innerHTML ='Choisissez l\'élément item à supprimer';
+    select.append(optDefault);
+    for(let i = 0; i < localStorage.length; i = i+ 1){
+        console.log(localStorage.key(i));
+        const optionSelect = document.createElement('option');
+        optionSelect.setAttribute('id', localStorage.key(i));
+        optionSelect.innerText = localStorage.key(i);
+        select.append(optionSelect);
+    }
+}
+
+function createLocal(...localValues){
+    for(localValue of localValues){
+        const input = document.getElementById(localValue);
+        if(input.value !== ''){
+            localStorage.setItem(localValue, input.value);
+            input.value = '';
+        }
+    }
+    appendLocalSelect();
+}
+
+
+function deleteLocalItem(localItem){
+    const item = document.getElementById(localItem);
+    if(item.value !== ''){
+        localStorage.removeItem(item.value);
+    }
+    appendLocalSelect();
+}
+
+function clearLocal(){
+    localStorage.clear();
+    appendLocalSelect();
+}
+
 appendSessionSelect();
+appendLocalSelect();
