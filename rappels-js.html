@@ -101,18 +101,16 @@
                 </p>
                 <h3>Cookies</h3>
                 <p>
+                    <label for="isCookie">Cookie enregistré : </label> <br />
+                    <input type="text" disabled id="isCookie" placeholder="pas de cookie 'formationCookie' d'enristré" />
+                </p>
+                <p>
                     <label for="formationCookie">Créer un cookie</label><br />
                     <input type="text" id="formationCookie" value="" />
                 </p>
                 <p>
-                    <button onclick="setCookie('formationCookie', document.getElementById('formationCookie').value, 1)" >Créer</button>
-                </p>
-                <p>
-                    <label for="formationCookie2">Créer un autre cookie</label><br />
-                    <input type="text" id="formationCookie2" value="" />
-                </p>
-                <p>
-                    <button onclick="setCookie('formationCookie2', document.getElementById('formationCookie2').value, 1)" >Créer</button>
+                    <button onclick="setCookie('formationCookie', document.getElementById('formationCookie').value, 1)" >Créer</button> 
+                    <button onclick="setCookie('formationCookie')" >Supprimer</button> 
                 </p>
             </article>            
         </section>

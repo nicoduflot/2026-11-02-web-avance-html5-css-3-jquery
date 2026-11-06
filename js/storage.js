@@ -105,13 +105,25 @@ function setCookie(name, value='', days = -1, path = '/'){
     const maxAge = 60 * 60 * 24 * days;
     document.cookie = `${name}=${value}; max-age=${maxAge}; path=${path}; Samesite=Strict; Secure`;
     console.log(document.cookie);
+    document.getElementById(name).value = '';
+    checkCookie(name);
 }
 
 function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) {
+    if (parts.length === 2)
         return decodeURIComponent(parts.pop().split(';').shift());
-    }
-    return null;
+    return false;
 }
+
+function checkCookie(cookieName){
+    let formationCookie = getCookie(cookieName);
+    if(formationCookie){
+        document.getElementById('isCookie').value = formationCookie;
+    }else{
+        document.getElementById('isCookie').value = '';
+    }
+}
+
+checkCookie('formationCookie');
